@@ -1,24 +1,21 @@
 import React from 'react';
+import {Link} from 'react-router-dom' 
 import './Navbar.css';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+// import { useGSAP } from '@gsap/react';
+// import gsap from 'gsap';
 
 const Navbar = () => {
-    useGSAP(()=>{
-        gsap.to(".home",{
+    // useGSAP(()=>{
+    //     gsap.to(".home",{
             
-        })
-    })
+    //     })
+    // })
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">Brand</div>
-      <ul className="navbar-links">
-        <li><a className='home' href="#home">Home</a></li>
-        <li><a className='about' href="#about">About</a></li>
-        <li><a className='services' href="#services">Services</a></li>
-        <li><a className='contact' href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div className='navbar'>
+        <Link className="home" to="/">Home</Link>
+        <Link className="login" to="/login">Login</Link>
+        <Link className="history" to="/history">History</Link>   
+     </div>
   );
 };
 

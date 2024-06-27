@@ -1,8 +1,12 @@
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
 import React from 'react'
-import Navbar from './components/Navbar';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+// import { useGSAP } from '@gsap/react'
+// import gsap from 'gsap'
+import Navbar from './components/Navbar.jsx';
 import './App.css'
+import {Home } from './pages/Home.jsx';
+// import {Login} from './pages/Login.jsx';
+import {History} from './pages/History.jsx';
 
 const App = () => {
   // useGSAP(()=>{
@@ -14,25 +18,14 @@ const App = () => {
   // })
   return (
     <div className="App">
-      <Navbar />
-      <main>
-        <section id="home">
-          <h1>Home Section</h1>
-          <p>Welcome to the home page!</p>
-        </section>
-        <section id="about">
-          <h1>About Section</h1>
-          <p>Learn more about us here.</p>
-        </section>
-        <section id="services">
-          <h1>Services Section</h1>
-          <p>Check out our services.</p>
-        </section>
-        <section id="contact">
-          <h1>Contact Section</h1>
-          <p>Get in touch with us.</p>
-        </section>
-      </main>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          {/* <Route path="/login" element={<Login/>}/> */}
+          <Route path="/history" element={<History/>}/>
+        </Routes>
+      </Router>
     </div>
   )
 }
