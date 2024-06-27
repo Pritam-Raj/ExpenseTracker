@@ -1,9 +1,11 @@
-import React from 'react'
-import './History.css'
-export const History = () => {
+import React from 'react';
+
+const History = () => {
   return (
-    <div className="history">
-        <h1>history hello</h1>
+    <div>
+      <h1>History Page</h1>
     </div>
-  )
-}
+  );
+};
+
+export default History;
