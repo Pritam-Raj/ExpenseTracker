@@ -13,11 +13,11 @@ main{
   height: 100vh;
   width: 100%;
   background-color: #111;
-  padding: 20px;
+  /* padding: 20px; */
 }
-.box{
-  height: 300px;
-  width: 300px;
-  background-color: crimson;
-  border-radius: 10px;
+.navbar{
+  height: 70px;
+  width: 100%;
+  background-color: #272D2D;
+  /* border-radius: 10px; */
 }
