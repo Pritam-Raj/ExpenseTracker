@@ -2,43 +2,57 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #000000c9;
-}
-
-.logo {
-    margin-left: 50px;
-    height: 60px;
-    padding-bottom: 4px;
-}
-
-.nav-links {
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  .nav-links {
     display: flex;
-    gap: 8rem;
-    margin-left: 30%;
-    margin-right: auto;
-}
-
-.nav-links a {
-    color: white;
-    font-size: 20px;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    color: #fff;
     text-decoration: none;
-    font-weight: bolder;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: aqua;
-}
-.login {
-    margin-left: auto; /* Pushes the login link to the rightmost corner */
-    color: white;
-    font-size: 20px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #ff69b4; /* Use your brand's color */
+  }
+  
+  .login {
+    color: #fff;
     text-decoration: none;
-    font-weight: bolder;
-    transition: color 0.3s;
-
-}
-
-
-
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .login:hover {
+    color: #ff69b4; /* Use your brand's color */
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .navbar {
+      flex-direction: column;
+    }
+  
+    .login {
+      margin-top: 10px;
+    }
+  }
+  
