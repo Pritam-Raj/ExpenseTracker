@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logoImg from "../assets/expenses.png";
-const Navbar = () => {
+
+const Navbar = ({ isDarkMode }) => {
   return (
-    <div className='navbar'>
+    <div className={`navbar ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <img className='logo' src={logoImg} alt="logo" />
       <div className='nav-links'>
         <Link className="home" to="/">Home</Link>
