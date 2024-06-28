@@ -1,51 +1,83 @@
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  background-color: #000;
+  color: #fff;
   width: 100%;
   box-sizing: border-box;
 }
-
-.navbar.dark-mode {
+.dark-mode {
   background-color: #000;
   color: #fff;
 }
 
-.navbar.light-mode {
+.light-mode {
   background-color: #fff;
   color: #000;
+  
 }
-
-.navbar .logo {
+.logo {
   height: 40px;
 }
 
-.navbar .nav-links {
+.nav-links {
   display: flex;
-  gap: 20px;
+  gap: 60px;
 }
 
-.navbar .nav-links a {
-  color: inherit;
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.nav-link .nav-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.nav-link:hover .nav-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-link .nav-icon {
+  font-size: 1.8rem;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.nav-link:hover .nav-icon {
+  opacity: 0;
+}
+
+.nav-link:hover {
+  color: #fbff14; /* Use your brand's color */
+}
+
+.login {
+  color: #fff;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 
-.navbar .nav-links a:hover {
-  color: #ff69b4; /* Use your brand's color */
-}
-
-.navbar .login {
-  color: inherit;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.navbar .login:hover {
-  color: #ff69b4; /* Use your brand's color */
+.login:hover {
+  color: #fbff00; /* Use your brand's color */
 }
 
 @media (max-width: 768px) {
@@ -63,3 +95,18 @@
     margin-top: 10px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

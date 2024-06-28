@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Home.css';
 import heroimg from '../assets/heroimg5new.png';
-import Navbar from '../components/Navbar.jsx';
+// import Navbar from '../components/Navbar.jsx';
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <div className={`home-container ${isDarkMode ? 'dark-mode' : ''}`}>
-      <Navbar isDarkMode={isDarkMode} />
+      {/* <Navbar isDarkMode={isDarkMode} /> */}
       <div className="hero-section">
         <div className="hero-content">
           <h1>Manage Your Expenses Easily With <span className="brand-name">SPENDSMART</span></h1>

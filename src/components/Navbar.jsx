@@ -2,17 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logoImg from "../assets/expenses.png";
-
+import { FaHome, FaHistory, FaUser } from "react-icons/fa";
+import { GiArtificialHive } from "react-icons/gi";
 const Navbar = ({ isDarkMode }) => {
   return (
     <div className={`navbar ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <img className='logo' src={logoImg} alt="logo" />
       <div className='nav-links'>
-        <Link className="home" to="/">Home</Link>
-        <Link className="history" to="/history">History</Link>
-        <Link className="askAi" to="/askAi">Ask AI</Link>
+      <Link className="nav-link" to="/">
+          <FaHome className="nav-icon" />
+          <span className="nav-text">Home</span>
+        </Link>
+        <Link className="nav-link" to="/history">
+          <FaHistory className="nav-icon" />
+          <span className="nav-text">History</span>
+        </Link>
+        <Link className="nav-link" to="/askAi">
+          <GiArtificialHive className="nav-icon" />
+          <span className="nav-text">Ask AI</span>
+        </Link>
       </div>
-      <Link className="login" to="/login">Login</Link>
+      <Link className="nav-link login" to="/login">
+        <FaUser className="nav-icon" />
+        <span className="nav-text">Login</span>
+      </Link>
     </div>
   );
 };
