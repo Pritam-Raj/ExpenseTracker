@@ -1,0 +1,54 @@
+/* Ensure the footer is at the bottom */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto; /* This pushes the footer to the bottom */
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.text-muted {
+    margin-bottom: 10px;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logos img {
+    width: 100px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .logos img {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logos img {
+        width: 60px;
+    }
+}

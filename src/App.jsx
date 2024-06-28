@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import History from './pages/History.jsx';
 import AskAi from './pages/AskAi.jsx';
+import Footer from './components/Footer.jsx';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/history" element={<History />} />
           <Route path="/askAi" element={<AskAi/>} />
         </Routes>
+        <Footer/>
       </Router>
     </div>
   );
