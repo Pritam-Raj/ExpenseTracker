@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import History from './pages/History.jsx';
 import AskAi from './pages/AskAi.jsx';
+import Footer from './components/Footer.jsx'
 
 
 const App = () => {
@@ -14,9 +15,9 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login/>} />
-          <Route path="/history" element={<History />} />
+          <Route path="/history" element={<History/>} />
           <Route path="/askAi" element={<AskAi/>} />
         </Routes>
         <Footer/>
