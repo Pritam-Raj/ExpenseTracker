@@ -19,6 +19,7 @@ const App = () => {
           <Route path="/history" element={<History />} />
           <Route path="/askAi" element={<AskAi/>} />
         </Routes>
+        <Footer/>
       </Router>
     </div>
   );
