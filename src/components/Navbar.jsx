@@ -4,14 +4,20 @@ import './Navbar.css';
 import logoImg from "../assets/expenses.png";
 import { FaHome, FaHistory, FaUser } from "react-icons/fa";
 import { GiArtificialHive } from "react-icons/gi";
+import { MdMedicalServices } from "react-icons/md";
+
 const Navbar = ({ isDarkMode }) => {
   return (
     <div className={`navbar ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <img className='logo' src={logoImg} alt="logo" />
       <div className='nav-links'>
-      <Link className="nav-link" to="/">
+        <Link className="nav-link" to="/">
           <FaHome className="nav-icon" />
           <span className="nav-text">Home</span>
+        </Link>
+        <Link className="nav-link" to="/services">
+          <MdMedicalServices className="nav-icon" />
+          <span className="nav-text">Services</span>
         </Link>
         <Link className="nav-link" to="/history">
           <FaHistory className="nav-icon" />
