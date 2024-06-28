@@ -6,8 +6,6 @@ import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import History from './pages/History.jsx';
 import AskAi from './pages/AskAi.jsx';
-import Register from './pages/Register.jsx';
-import Reset from './pages/Reset.jsx';
 
 
 const App = () => {
@@ -20,8 +18,6 @@ const App = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/history" element={<History />} />
           <Route path="/askAi" element={<AskAi/>} />
-          <Route path='/register' element={<Register/>}/>
-          <Route path='/reset' element={<Reset/>}/>
         </Routes>
       </Router>
     </div>

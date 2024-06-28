@@ -1,40 +1,39 @@
-import React from "react";
-import loginImg from "../assets/login.svg";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import './Login.css'
+import React, { useState } from 'react';
+import './Login.css';
 
-const Login = ({ onRegister, onReset, onTogglePassword, onShowPassword }) => {
+const Login = () => {
+  const [isSignup, setIsSignup] = useState(false);
+
+  const handleContainerClick = () => {
+    // Handle click event for the container
+  };
+
+  const toggleSignup = () => {
+    setIsSignup(!isSignup);
+  };
+
   return (
-    <div className="main-container --flex-center">
-      <div className="img-container">
-        <img src={loginImg} alt="login" />
-      </div>
-      <div className="form-container">
-        <form className="--form-control">
-          <h2 className="--color-danger --text-center">Login</h2>
-          <input type="text" className="--width-100" placeholder="Username" />
-          <div className="password">
-            <input
-              type={onShowPassword ? "text" : "password"}
-              className="--width-100"
-              placeholder="Password"
-            />
-            <span className="icon" onClick={onTogglePassword}>
-              {onShowPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-            </span>
-          </div>
-          <button className="--btn --btn-primary --btn-block">Login</button>
-          <a href="/reset" className="--text-sm" onClick={onReset}>
-            Forgot password?
-          </a>
-          <span className="--text-sm --block">
-            Don't have an account?{" "}
-            <a href="/register" className="--text-sm" onClick={onRegister}>
-              Register
-            </a>
-          </span>
-        </form>
-      </div>
+    <div className="container" onClick={handleContainerClick}>
+      <div className="top"></div>
+      <div className="bottom"></div>
+      {isSignup ? (
+        <div className="center">
+          <h2>Please Sign Up</h2>
+          <input type="email" placeholder="email" />
+          <input type="password" placeholder="password" />
+          <input type="password" placeholder="confirm password" />
+          <h2>&nbsp;</h2>
+          <button onClick={toggleSignup}>Go to Login</button>
+        </div>
+      ) : (
+        <div className="center">
+          <h2>Please Sign In</h2>
+          <input type="email" placeholder="email" />
+          <input type="password" placeholder="password" />
+          <h2>&nbsp;</h2>
+          <button onClick={toggleSignup}>Go to Signup</button>
+        </div>
+      )}
     </div>
   );
 };
