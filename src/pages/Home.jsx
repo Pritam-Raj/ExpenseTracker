@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import heroimg from '../assets/heroimg2new.png';
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
           <button className="get-started-btn">Get Started</button>
         </div>
         <div className="hero-image">
-          {/* Add your hero images or illustrations here */}
+          <img className="hero" src={heroimg} alt="Hero" />
         </div>
       </div>
     </div>

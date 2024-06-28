@@ -68,7 +68,22 @@ body, html {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 800px;
+    max-width: 700px;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .hero {
+    height: 700px;
+    width: 700px;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
   }
   
   .trusted-by-section {
@@ -101,4 +116,3 @@ body, html {
       max-width: 50%;
     }
   }
-  
