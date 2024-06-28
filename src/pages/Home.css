@@ -69,12 +69,19 @@ body, html {
     align-items: center;
     width: 100%;
     max-width: 700px;
-    animation: float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite, rotate 10s linear infinite;
+    /* filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.5)); */
   }
   
   .hero {
     height: 700px;
     width: 700px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .hero:hover {
+    transform: scale(1.05);
+    /* filter: blur(1px); */
   }
   
   @keyframes float {
@@ -85,6 +92,7 @@ body, html {
       transform: translateY(-20px);
     }
   }
+  
   
   .trusted-by-section {
     text-align: center;
@@ -116,3 +124,4 @@ body, html {
       max-width: 50%;
     }
   }
+  
