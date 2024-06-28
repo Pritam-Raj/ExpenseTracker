@@ -3,32 +3,42 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #333;
-    color: #fff;
+    background-color: #000000c9;
 }
-  
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
+
+.logo {
+    margin-left: 50px;
+    height: 60px;
+    padding-bottom: 4px;
 }
-  
-.navbar-links {
-    list-style: none;
+
+.nav-links {
     display: flex;
-    gap: 1rem;
+    gap: 8rem;
+    margin-left: 30%;
+    margin-right: auto;
 }
-  
-.navbar-links li {
-    padding: 0.5rem 1rem;
-}
-  
-.navbar-links a {
+
+.nav-links a {
+    color: white;
+    font-size: 20px;
     text-decoration: none;
-    color: #fff;
-    transition: color 0.3s ease;
+    font-weight: bolder;
+    transition: color 0.3s;
 }
-  
-.navbar-links a:hover {
-    color: #f0a500;
+
+.nav-links a:hover {
+    color: aqua;
 }
-  
+.login {
+    margin-left: auto; /* Pushes the login link to the rightmost corner */
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bolder;
+    transition: color 0.3s;
+
+}
+
+
+
