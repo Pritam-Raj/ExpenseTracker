@@ -53,7 +53,19 @@ const Home = () => {
             </span>
           </h1>
           <p className="typing-text">We are providing the easiest way to manage expenses. Get a full view so you know where to save. Track spending, detect fraud, and keep tabs on rising subscription costs</p>
-          <button className="get-started-btn">Get Started</button>
+          <button className="get-started-btn">
+          <div>
+            <span>
+              <p>Get Started</p>
+            </span>
+          </div>
+          <div>
+            <span>
+              <p>Lets Go!!!</p>
+            </span>
+          </div>
+          </button>
+
           <button className="dark-mode-btn" onClick={toggleDarkMode}>
             {isDarkMode ? 'Light Mode' : 'Dark Mode'}
           </button>
