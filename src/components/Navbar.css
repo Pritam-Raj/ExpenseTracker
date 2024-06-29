@@ -1,24 +1,22 @@
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #000;
-  color: #fff;
   width: 100%;
   box-sizing: border-box;
 }
+
 .dark-mode {
-  background-color: #000;
-  color: #fff;
+  background-color: #ffeb3b; /* Yellow background color for dark mode */
+  color: #fff; /* White text color for dark mode */
 }
 
 .light-mode {
   background-color: #fff;
   color: #000;
-  
 }
+
 .logo {
   height: 40px;
 }
@@ -32,11 +30,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  color: #fff;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
-  white-space: nowrap; /* Prevent line breaks */
+  white-space: nowrap;
+  color: inherit; /* Ensure links inherit color from the parent */
 }
 
 .nav-link .nav-text {
@@ -47,7 +45,7 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease;
-  white-space: nowrap; /* Prevent line breaks */
+  white-space: nowrap;
 }
 
 .nav-link:hover .nav-text {
@@ -65,19 +63,51 @@
   opacity: 0;
 }
 
-.nav-link:hover {
-  color: #fbff14; /* Use your brand's color */
+/* Hover effect for light mode */
+.light-mode .nav-link:hover {
+  color: #000; /* Black color for light mode hover */
+}
+
+/* Hover effect for dark mode */
+.dark-mode .nav-link:hover {
+  color: #fbff14; /* Yellow color for dark mode hover */
 }
 
 .login {
-  color: #fff;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
+  color: inherit; /* Ensure login link inherits color from the parent */
 }
 
 .login:hover {
-  color: #fbff00; /* Use your brand's color */
+  color: #fbff00;
+}
+
+.toggle-login-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+}
+
+.toggle-button.light-mode .toggle-icon {
+  color: #000; /* Black color for light mode */
+}
+
+.toggle-button.dark-mode .toggle-icon {
+  color: #fff; /* White color for dark mode */
+}
+
+.toggle-icon {
+  font-size: 1.8rem;
 }
 
 @media (max-width: 768px) {
@@ -91,22 +121,7 @@
     flex-direction: column;
   }
 
-  .login {
+  .toggle-login-container {
     margin-top: 10px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
