@@ -6,8 +6,8 @@ import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import History from './pages/History.jsx';
 import AskAi from './pages/AskAi.jsx';
-import Services from './pages/Services.jsx'
-// import Footer from './components/Footer.jsx'
+import Services from './pages/Services.jsx';
+import Signup from './pages/Signup.jsx';
 
 
 const App = () => {
@@ -21,8 +21,8 @@ const App = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/history" element={<History/>} />
           <Route path="/askAi" element={<AskAi/>} />
+          <Route path="/signup" element={<Signup/>}/>
         </Routes>
-        {/* <Footer/> */}
       </Router>
     </div>
   );
