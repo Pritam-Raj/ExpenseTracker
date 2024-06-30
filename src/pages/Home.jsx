@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Home.css';
-import heroimg from '../assets/heroimg5new.png';
+import heroimg from '../assets/home2.png';
 import Typed from 'typed.js'
 // import Navbar from '../components/Navbar.jsx';
 
@@ -44,7 +44,6 @@ const Home = () => {
 
   return (
     <div className={`home-container ${isDarkMode ? 'dark-mode' : ''}`}>
-      {/* <Navbar isDarkMode={isDarkMode} /> */}
       <div className="hero-section">
         <div className="hero-content">
         <h1>Manage Your Expenses Easily With 
@@ -65,7 +64,6 @@ const Home = () => {
             </span>
           </div>
           </button>
-
           <button className="dark-mode-btn" onClick={toggleDarkMode}>
             {isDarkMode ? 'Light Mode' : 'Dark Mode'}
           </button>
