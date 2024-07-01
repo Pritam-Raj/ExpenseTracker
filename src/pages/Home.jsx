@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import heroimg from '../assets/home2.png';
 import Typed from 'typed.js'
@@ -52,18 +53,20 @@ const Home = () => {
             </span>
           </h1>
           <p className="typing-text">We are providing the easiest way to manage expenses. Get a full view so you know where to save. Track spending, detect fraud, and keep tabs on rising subscription costs</p>
+          <Link className='service-link' to="/services">
           <button className="get-started-btn">
           <div>
-            <span>
-              <p>Get Started</p>
+            <span>            
+            <p>Get Started</p>           
             </span>
           </div>
           <div>
-            <span>
-              <p>Lets Go!!!</p>
+            <span>     
+              <p>Lets Go!!!</p>            
             </span>
           </div>
           </button>
+          </Link>
           <button className="dark-mode-btn" onClick={toggleDarkMode}>
             {isDarkMode ? 'Light Mode' : 'Dark Mode'}
           </button>
