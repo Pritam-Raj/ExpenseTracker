@@ -6,8 +6,10 @@ import "./Login.css";
 import loginimage from "../assets/login2.png";
 
 const Login = () => {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [scale, setScale] = useState(1); // Add state for scale
 
   const [_, setCookies] = useCookies(["access_token"]);
 
@@ -24,6 +26,7 @@ const Login = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
+      setScale(0.9)
       const response = await axios.post(`http://localhost:3000/auth/login`, {
         username,
         password,
@@ -40,6 +43,10 @@ const Login = () => {
     } catch (error) {
       console.error(error.message);
     }
+    finally{
+      setScale(1)
+    }
+    
   };
 
   return (

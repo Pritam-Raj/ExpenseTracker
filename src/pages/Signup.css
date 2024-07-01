@@ -67,6 +67,10 @@ body{
     font-weight: 600;
   }
 
+  .sign:hover{
+    cursor: pointer;
+  }
+
   .signup {
     text-align: center;
     font-size: 0.75rem;
