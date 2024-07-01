@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 import './Signup.css';
 import signupimage from '../assets/login6.png'
 
-const Login = () => {
+const SignUp = () => {
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [password, setPassword] = useState('');
+  
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -24,10 +26,22 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Username:', username);
-    console.log('Password:', password);
+    try {
+      const response=await axios.post(`http://localhost:3000/auth/register`, {
+        username,
+        password,
+        email
+      });
+      if(response?.data?.message=="UserEmail already exists"){
+        alert("Email already exist. Please try another email")
+      }else {
+        alert("Registration Completed ! Please Login ");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -92,4 +106,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
