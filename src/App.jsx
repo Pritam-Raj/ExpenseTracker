@@ -8,6 +8,7 @@ import History from './pages/History.jsx';
 import AskAi from './pages/AskAi.jsx';
 import Services from './pages/Services.jsx';
 import Signup from './pages/Signup.jsx';
+import Footer from './components/Footer.jsx'
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/askAi" element={<AskAi/>} />
           <Route path="/signup" element={<Signup/>}/>
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
