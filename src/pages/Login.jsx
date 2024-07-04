@@ -89,7 +89,7 @@ const Login = () => {
               </a>
             </div>
           </div>
-          <button className="sign" type="submit">
+          <button className="signin" type="submit">
             Sign in
           </button>
         </form>
