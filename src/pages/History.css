@@ -1,11 +1,267 @@
-*{
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f5f5f5;
 }
-.history{
+
+.dashboard {
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    
+    height: 100vh;
+    background-color: #e5e5e5;
+}
+
+.main-content {
+    width: 90%;
+    max-width: 1440px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.icon-search {
+    font-size: 20px;
+    color: #ccc;
+    margin-left: 5px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #333;
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.balance-card {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.balance h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #888;
+}
+
+.balance-amount {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.card-number, .card-holder, .expiry-date {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle input:checked + .slider {
+    background-color: #2196F3;
+}
+
+.slider {
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    top: 2.5px;
+    left: 2.5px;
+    transition: 0.4s;
+}
+
+input:checked + .slider:before {
+    transform: translateX(25px);
+}
+
+.expenses {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex: 2;
+}
+
+.expense-card, .add-expense {
+    flex: 1;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.expense-card p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.expense-card.food-drink {
+    background-color: #c6f6d5;
+}
+
+.expense-card.travel {
+    background-color: #ffeeba;
+}
+
+.expense-card.workspace {
+    background-color: #e2e2f2;
+}
+
+.amount {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #76c7c0;
+}
+
+.add-expense {
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.transactions {
+    flex: 1;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.transactions-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.transactions-header a {
+    text-decoration: none;
+    color: #888;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.transaction-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.transaction-amount {
+    font-size: 16px;
+    color: #888;
+}
+
+.transaction-time {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.finances {
+    flex: 2;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.finances h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+}
+
+.chart {
+    height: 200px;
+}
+
+.chart-controls {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.chart-controls button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.chart-controls button.active {
+    background-color: #2196F3;
+    color: white;
 }
