@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 import loginimage from "../assets/login2.png";
 
 const Login = () => {
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [scale, setScale] = useState(1); // Add state for scale
@@ -25,32 +26,39 @@ const Login = () => {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
+
+    if (!username || !password) {
+      toast.error("Please fill out all fields.");
+      return;
+    }
+
     try {
-      setScale(0.9)
+      setScale(0.9);
       const response = await axios.post(`http://localhost:3000/auth/login`, {
         username,
         password,
       });
-      if (response?.data?.message == "User does not exist") {
-        alert("Username does not Exist");
-      } else if (response?.data?.message == "Username or Password Invalid") {
-        alert("Wrong Username or Password Try Again!!");
+      if (response?.data?.message === "User does not exist") {
+        toast.error("Username does not Exist");
+      } else if (response?.data?.message === "Username or Password Invalid") {
+        toast.error("Wrong Username or Password. Try Again!!");
       } else {
         setCookies("access_token", response.data.token);
         window.localStorage.setItem("userID", response.data.userID);
+        toast.success("Logged in successfully");
         navigate("/");
       }
     } catch (error) {
       console.error(error.message);
+      toast.error("Error: Unable to connect to the server.");
+    } finally {
+      setScale(1);
     }
-    finally{
-      setScale(1)
-    }
-    
   };
 
   return (
     <div className="main-div">
+      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
       <div className="form-container">
         <p className="title">Login</p>
         <form className="form" onSubmit={handleLoginSubmit}>
@@ -81,7 +89,7 @@ const Login = () => {
               </a>
             </div>
           </div>
-          <button className="sign" type="submit" onClick={handleLoginSubmit}>
+          <button className="sign" type="submit">
             Sign in
           </button>
         </form>

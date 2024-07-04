@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
-import './Services.css'
-import serviceimg from '../assets/service.png'
+import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './Services.css';
+import serviceimg from '../assets/service.png';
 
 const Services = () => {
   const [form, setForm] = useState({
@@ -28,6 +30,13 @@ const Services = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if all required fields are filled
+    // if (!form.date || !form.total || !form.category || !form.description) {
+    //   toast.error('Please fill out all required fields.');
+    //   return;
+    // }
+
     // Handle form submission logic here
     const formData = new FormData();
     formData.append('date', form.date);
@@ -45,15 +54,28 @@ const Services = () => {
       if (response.ok) {
         const result = await response.json();
         console.log('Expense saved:', result);
+        toast.success('Expense added successfully!');
+        // Optionally reset form state after successful submission
+        setForm({
+          date: '',
+          total: '',
+          category: '',
+          description: '',
+          invoice: null,
+        });
       } else {
         console.error('Error saving expense');
+        toast.error('Error saving expense. Please try again later.');
       }
     } catch (error) {
       console.error('Error:', error);
+      toast.error('Error: Unable to connect to the server.');
     }
   };
+
   return (
     <div className='services'>
+      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
       <form className="expense-form" onSubmit={handleSubmit}>
         <h2>New Expense</h2>
         <label>
@@ -94,7 +116,7 @@ const Services = () => {
         <img className='service-image' src={serviceimg} alt="" />
       </div>
     </div>
-  )
+  );
 }
 
-export default Services
+export default Services;
