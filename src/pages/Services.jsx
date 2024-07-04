@@ -26,10 +26,31 @@ const Services = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log(form);
+    const formData = new FormData();
+    formData.append('date', form.date);
+    formData.append('total', form.total);
+    formData.append('category', form.category);
+    formData.append('description', form.description);
+    formData.append('invoice', form.invoice);
+
+    try {
+      const response = await fetch('http://localhost:3000/users/expenses', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Expense saved:', result);
+      } else {
+        console.error('Error saving expense');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
   return (
     <div className='services'>
