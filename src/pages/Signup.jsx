@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import './Signup.css';
-import signupimage from '../assets/login6.png';
+import signupimage from '../assets/login6.png'
 
 const SignUp = () => {
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [password, setPassword] = useState('');
+  
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
-
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-
   const handleConfirmpasswordChange = (e) => {
     setConfirmpassword(e.target.value);
   };
@@ -30,37 +28,24 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!username || !email || !password || !confirmpassword) {
-      toast.error("Please fill out all required fields.");
-      return;
-    }
-
-    if (password !== confirmpassword) {
-      toast.error("Passwords do not match. Please re-enter.");
-      return;
-    }
-
     try {
-      const response = await axios.post(`http://localhost:3000/auth/register`, {
+      const response=await axios.post(`http://localhost:3000/auth/register`, {
         username,
         password,
         email
       });
-      if (response?.data?.message === "UserEmail already exists") {
-        toast.error("Email already exists. Please try another email.");
-      } else {
-        toast.success("Account created successfully. Please login.");
+      if(response?.data?.message=="UserEmail already exists.Please try with another email"){
+        alert("Email already exist. Please try another email")
+      }else {
+        alert("Registration Completed ! Please Login ");
       }
     } catch (error) {
-      console.error(error);
-      toast.error("Error: Registration failed. Please try again.");
+      console.log(error);
     }
   };
 
   return (
     <div className='main-div'>
-      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
       <div className="form-container">
         <p className="title">Signup</p>
         <form className="form" onSubmit={handleSubmit}>

@@ -9,12 +9,14 @@ import AskAi from './pages/AskAi.jsx';
 import Services from './pages/Services.jsx';
 import Signup from './pages/Signup.jsx';
 import Footer from './components/Footer.jsx'
+import { AuthProvider } from './context/AuthContext.jsx';
 
 
 const App = () => {
   return (
     <div className="App">
       <Router>
+      <AuthProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home/>} />
@@ -25,6 +27,7 @@ const App = () => {
           <Route path="/signup" element={<Signup/>}/>
         </Routes>
         <Footer />
+      </AuthProvider>
       </Router>
     </div>
   );

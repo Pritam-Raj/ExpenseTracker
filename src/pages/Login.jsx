@@ -1,23 +1,24 @@
-import React, { useState } from "react";
+import React, { useState,useContext  } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import { AuthContext } from "../context/AuthContext"; 
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 import loginimage from "../assets/login2.png";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
   const [scale, setScale] = useState(1); // Add state for scale
 
   const [_, setCookies] = useCookies(["access_token"]);
-
+  const { login } = useContext(AuthContext); // Use AuthContext
   const navigate = useNavigate();
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleUserEmailChange = (e) => {
+    setUserEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -27,7 +28,7 @@ const Login = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
 
-    if (!username || !password) {
+    if (!userEmail || !password) {
       toast.error("Please fill out all fields.");
       return;
     }
@@ -35,18 +36,22 @@ const Login = () => {
     try {
       setScale(0.9);
       const response = await axios.post(`http://localhost:3000/auth/login`, {
-        username,
+        userEmail,
         password,
       });
-      if (response?.data?.message === "User does not exist") {
-        toast.error("Username does not Exist");
-      } else if (response?.data?.message === "Username or Password Invalid") {
-        toast.error("Wrong Username or Password. Try Again!!");
+      if (response?.data?.message === "UserEmail does not exist") {
+        toast.error("Invalid Email or Password");
+      } else if (response?.data?.message === "Invalid Password") {
+        toast.error("Invalid Email or Password");
       } else {
         setCookies("access_token", response.data.token);
-        window.localStorage.setItem("userID", response.data.userID);
+        login(response.data.userID); // Call login function from AuthContext
+        
+        // window.localStorage.setItem("userID", response.data.userID);
         toast.success("Logged in successfully");
-        navigate("/");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000); // Adjust the delay time if needed
       }
     } catch (error) {
       console.error(error.message);
@@ -69,8 +74,8 @@ const Login = () => {
               name="email"
               id="email"
               placeholder="Email"
-              value={username}
-              onChange={handleUsernameChange}
+              value={userEmail}
+              onChange={handleUserEmailChange}
             />
           </div>
           <div className="input-group">

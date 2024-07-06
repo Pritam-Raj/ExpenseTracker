@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState ,useContext} from 'react';
 import { Link } from 'react-router-dom';
+import {AuthContext} from "../context/AuthContext"
 import './Navbar.css';
 import logoImg from "../assets/expenses.png";
 import { FaHome, FaHistory, FaUser } from "react-icons/fa";
 import { GiArtificialHive } from "react-icons/gi";
+import { IoIosLogOut } from "react-icons/io";
 import { MdMedicalServices, MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-
+  const { isLoggedIn, logout } = useContext(AuthContext); // Use AuthContext
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
@@ -38,10 +40,17 @@ const Navbar = () => {
         <button className={`toggle-button ${isDarkMode ? 'dark-mode' : 'light-mode'}`} onClick={toggleDarkMode}>
           {isDarkMode ? <MdOutlineLightMode className="toggle-icon" /> : <MdOutlineDarkMode className="toggle-icon" />}
         </button>
-        <Link className="nav-link login" to="/login">
-          <FaUser className="nav-icon" />
-          <span className="nav-text">Login</span>
-        </Link>
+        {isLoggedIn ? (
+          <button className="nav-link login" onClick={logout}>
+            <IoIosLogOut className="nav-icon" />
+            <span className="nav-text">Logout</span>
+          </button>
+        ) : (
+          <Link className="nav-link login" to="/login">
+            <FaUser className="nav-icon" />
+            <span className="nav-text">Login</span>
+          </Link>
+        )}
       </div>
     </div>
   );
