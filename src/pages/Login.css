@@ -84,8 +84,10 @@
   background-color: #212121;
   border-radius: 15px;
   font-family: "Roboto", Arial, "Segoe UI", sans-serif;
-  font-size: 18px;
-  font-weight: 500;
+  width: 120px;
+  height: 60px;
+  font-size: 15px;
+  font-weight: 400;
   cursor: pointer;
   color: #fff;
   z-index: 2;

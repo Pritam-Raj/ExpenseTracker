@@ -63,12 +63,12 @@ const Login = () => {
         <p className="title">Login</p>
         <form className="form" onSubmit={handleLoginSubmit}>
           <div className="input-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Email</label>
             <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="username"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
               value={username}
               onChange={handleUsernameChange}
             />
