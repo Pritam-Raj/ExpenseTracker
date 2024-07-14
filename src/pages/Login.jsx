@@ -39,6 +39,7 @@ const Login = () => {
         userEmail,
         password,
       });
+      console.log(response);
       if (response?.data?.message === "UserEmail does not exist") {
         toast.error("Invalid Email or Password");
       } else if (response?.data?.message === "Invalid Password") {
@@ -47,7 +48,8 @@ const Login = () => {
         setCookies("access_token", response.data.token);
         login(response.data.userID); // Call login function from AuthContext
         
-        // window.localStorage.setItem("userID", response.data.userID);
+        window.localStorage.setItem("userID", response.data.userID);
+        window.localStorage.setItem("token", response.data.token);
         toast.success("Logged in successfully");
         setTimeout(() => {
           navigate("/");

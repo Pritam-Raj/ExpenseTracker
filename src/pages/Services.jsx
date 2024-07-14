@@ -5,12 +5,15 @@ import './Services.css';
 import serviceimg from '../assets/service.png';
 
 const Services = () => {
+  const userId = localStorage.getItem("userID");
+
   const [form, setForm] = useState({
     date: '',
     total: '',
     category: '',
     description: '',
     invoice: null,
+    user: userId,
   });
 
   const handleChange = (e) => {
@@ -44,6 +47,7 @@ const Services = () => {
     formData.append('category', form.category);
     formData.append('description', form.description);
     formData.append('invoice', form.invoice);
+    formData.append('userId', form.user);
 
     try {
       const response = await fetch('http://localhost:3000/users/expenses', {
@@ -62,6 +66,7 @@ const Services = () => {
           category: '',
           description: '',
           invoice: null,
+          user: userId
         });
       } else {
         console.error('Error saving expense');
